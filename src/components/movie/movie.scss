@@ -1,0 +1,76 @@
+.itemWRapper {
+    overflow-x: unset;
+
+    * {
+        overflow-x: unset;
+    }
+
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 25px;
+
+    img {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        width: 220px;
+        border-radius: 5px;
+    }
+
+    .metaData {
+        padding: 9px 15px;
+
+        .title {
+            font-weight: 600;
+        }
+
+        .type {
+            font-size: 0.8rem;
+            padding-top: 6px;
+        }
+    }
+
+    .itemViewer {
+        position: absolute;
+        width: 330px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        height: 460px;
+        z-index: 9999999;
+        border-radius: 10px;
+        background-color: rgb(245, 245, 245);
+        top: -2rem;
+        left: -1rem;
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .movieData {
+            position: absolute;
+            width: 330px;
+            height: 492px;
+            border-radius: 10px;
+            bottom: -33px;
+            right: 0;
+            background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(10, 10, 10)),
+                    to(rgba(80, 80, 80, 0.137)), color-stop(.6, #000000c0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            * {
+                padding: 0.3rem 2rem;
+                color: white;
+            }
+
+            .ratingText {
+                padding-bottom: 2rem;
+            }
+
+            .title {
+                font-weight: 600;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

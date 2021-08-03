@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
 import { Provider } from "react-redux";
-import HomePage from './pages/home-page';
 import ProtectedRoute from './components/protected-routes';
 import LoginPage from './pages/login-page';
 import FullPageLoader from "./containers/full-page-loader";
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from "react-toasts";
+import HomePage from "./pages/home-page/home-page";
 
 function App() {
   return (

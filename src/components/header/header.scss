@@ -1,0 +1,13 @@
+.header {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logoPart {
+        font-weight: 400;
+        font-size: 2rem;
+        padding: 15px 30px;
+    }
+}
