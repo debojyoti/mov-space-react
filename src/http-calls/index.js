@@ -15,7 +15,7 @@ export const HttpCalls = {
   },
   makeSearchCall: async (searchParams) => {
     const { data } = await axios.get(
-      `http://www.omdbapi.com/${HttpCalls.structureQueryParams({
+      `https://www.omdbapi.com/${HttpCalls.structureQueryParams({
         apiKey: "92087764",
         ...searchParams,
       })}`
@@ -24,7 +24,7 @@ export const HttpCalls = {
   },
   getMovieDetails: async (omdbId) => {
     const { data } = await axios.get(
-      `http://www.omdbapi.com/${HttpCalls.structureQueryParams({
+      `https://www.omdbapi.com/${HttpCalls.structureQueryParams({
         apiKey: "92087764",
         i: omdbId,
       })}`
