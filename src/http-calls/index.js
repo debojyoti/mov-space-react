@@ -1,19 +1,34 @@
-import { BASE_URL } from '../config/index';
-import { makePostRequest } from '../http-connectors';
+import axios from "axios";
 
-export const login = loginData => {
-  return new Promise((resolve, reject) => {
-    makePostRequest(
-      BASE_URL + "5da203dc2f00007900f418fa",
-      false,
-      loginData
-    )
-      .then(res => {
-        resolve(res);
-      })
-      .catch(e => {
-        console.log("API call error: ", e);
-        reject(e);
-      });
-  });
+export const HttpCalls = {
+  structureQueryParams: (params) => {
+    let queryStrings = "?";
+    const keys = Object.keys(params);
+    keys.forEach((key, index) => {
+      queryStrings += key + "=" + params[key];
+      if (params[keys[index + 1]]) {
+        queryStrings += "&";
+      }
+    });
+    console.log('queryStrings :>> ', queryStrings);
+    return queryStrings;
+  },
+  makeSearchCall: async (searchParams) => {
+    const { data } = await axios.get(
+      `http://www.omdbapi.com/${HttpCalls.structureQueryParams({
+        apiKey: "92087764",
+        ...searchParams,
+      })}`
+    );
+    return data;
+  },
+  getMovieDetails: async (omdbId) => {
+    const { data } = await axios.get(
+      `http://www.omdbapi.com/${HttpCalls.structureQueryParams({
+        apiKey: "92087764",
+        i: omdbId,
+      })}`
+    );
+    return data;
+  },
 };

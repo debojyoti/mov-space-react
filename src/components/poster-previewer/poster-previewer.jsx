@@ -8,6 +8,17 @@ const PosterPreviewer = ({ source, width = "220px", height = "320px" }) => {
     setIsLoading(false);
   }
 
+  const _isValidURL = (url) => {
+    const expression =
+      /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+    const regex = new RegExp(expression);
+    if (url.match(regex)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <>
       {isLoading && (
@@ -18,7 +29,11 @@ const PosterPreviewer = ({ source, width = "220px", height = "320px" }) => {
       <img
         alt="ad-img"
         width={300}
-        src={source}
+        src={
+          _isValidURL(source)
+            ? source
+            : "https://png.pngtree.com/png-vector/20190316/ourmid/pngtree-movie-projector-icon-set-of-great-flat-icons-with-style-long-s-png-image_848559.jpg"
+        }
         style={{ display: isLoading ? "none" : "block" }}
         onLoad={onLoad}
         className="poster"

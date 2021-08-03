@@ -1,30 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "./redux/store";
-import { Provider } from "react-redux";
-import ProtectedRoute from './components/protected-routes';
-import LoginPage from './pages/login-page';
+import {
+  ToastsContainer,
+  ToastsContainerPosition,
+  ToastsStore,
+} from "react-toasts";
 import FullPageLoader from "./containers/full-page-loader";
-import { ToastsContainer, ToastsStore, ToastsContainerPosition } from "react-toasts";
 import HomePage from "./pages/home-page/home-page";
 
 function App() {
   return (
-    <Provider store={store}>
-      <PersistGate loading={<div></div>} persistor={persistor}>
-        <Router>
-          <div>
-            <FullPageLoader></FullPageLoader>
-            <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_RIGHT} />
-            <Switch>
-              <Route exact path="/login" component={LoginPage} />
-              <ProtectedRoute exact path="*" component={HomePage} redirectRoute="/login" /> */}
-            </Switch>
-          </div>
-        </Router>
-      </PersistGate>
-    </Provider>
+    <Router>
+      <div>
+        <ToastsContainer
+          store={ToastsStore}
+          position={ToastsContainerPosition.BOTTOM_RIGHT}
+        />
+        <Switch>
+          <Route exact path="*" component={HomePage} redirectRoute="/login" />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

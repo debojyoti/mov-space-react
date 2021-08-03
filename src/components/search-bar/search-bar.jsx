@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./search-bar.scss";
+import {DebounceInput} from 'react-debounce-input';
+
 
 const SearchBar = (props) => {
   const { clearResults, triggerNewSearch } = props;
@@ -29,10 +31,11 @@ const SearchBar = (props) => {
     >
       <div className="searchInnerWrapper">
         <div className="searchBar">
-          <input
+          <DebounceInput
             className={searchText?.length && "hasText"}
             type="text"
             placeholder="Search"
+            debounceTimeout={500}
             autoFocus
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
