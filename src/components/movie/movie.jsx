@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { HttpCalls } from "../../http-calls";
+import Utils from "../../utils";
 import PosterPreviewer from "../poster-previewer/poster-previewer";
 import "./movie.scss";
 
@@ -44,7 +45,7 @@ const Movie = ({ movie }) => {
     >
       <PosterPreviewer source={movie?.Poster} />
       <div className="metaData">
-        <div className="title">{movie?.Title}</div>
+        <div className="title">{Utils.trimString(movie?.Title, 25)}</div>
         <div className="type">{movie?.Type?.toUpperCase()}</div>
       </div>
 
