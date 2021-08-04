@@ -10,23 +10,23 @@ export const HttpCalls = {
         queryStrings += "&";
       }
     });
-    console.log('queryStrings :>> ', queryStrings);
+    console.log("queryStrings :>> ", queryStrings);
     return queryStrings;
   },
   makeSearchCall: async (searchParams) => {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/${HttpCalls.structureQueryParams({
-        apiKey: "92087764",
+      `${process.env.REACT_APP_OMDB_BASE_URL}/${HttpCalls.structureQueryParams({
+        apiKey: process.env.REACT_APP_OMDB_KEY,
         ...searchParams,
       })}`
     );
     return data;
   },
-  getMovieDetails: async (omdbId) => {
+  getMovieDetails: async (imdbID) => {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/${HttpCalls.structureQueryParams({
-        apiKey: "92087764",
-        i: omdbId,
+      `${process.env.REACT_APP_OMDB_BASE_URL}/${HttpCalls.structureQueryParams({
+        apiKey: process.env.REACT_APP_OMDB_KEY,
+        i: imdbID,
       })}`
     );
     return data;

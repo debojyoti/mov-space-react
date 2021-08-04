@@ -1,120 +1,152 @@
+.searchOuterWRapper {
+    width: 100vw;
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(44, 44, 44);
+    position: relative;
+    overflow-x: unset;
 
-  
-    .searchOuterWRapper {
-        width: 100vw;
-        height: 350px;
-        background-position: center;
-        background-size: cover;
-        background-image: url("../../assets/images/video-bg.gif");
-        position: relative;
+    * {
         overflow-x: unset;
-        * {
-            overflow-x: unset;
-        }
-        &.searchActive {
-            height: 50px;
-        background-image: unset;
-        }
+    }
 
-        .searchInnerWrapper {
-            bottom: -1.6rem;
+    &.searchActive {
+        height: 50px;
+        background-color: rgba(44, 44, 44, 0);
+
+        background-image: unset !important;
+    }
+
+    .searchInnerWrapper {
+        bottom: -1.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+
+        .searchBar {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
-            width: 100%;
+            position: relative;
 
-            .searchBar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
+            input {
+                height: 50px;
+                width: 400px;
+                border-radius: 8px;
+                padding-left: 2rem;
+                padding-right: 10rem;
+                font-weight: 600;
+                font-size: 1.2rem;
+                outline: none;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(238, 238, 238);
+                box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.2);
 
-                input {
-                    height: 50px;
-                    width: 400px;
-                    border-radius: 8px;
-                    padding-left: 2rem;
-                    padding-right: 7rem;
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                    outline: none;
-                    background-color: rgb(255, 255, 255);
-                    border: 1px solid rgb(238, 238, 238);
-                    box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.2);
+                @media screen and (max-width: 900px) {
+                    width: 41vw;
+                }
+
+                &:hover {
+                    border: 1px solid rgb(223, 223, 223);
+                    background-color: rgb(241, 241, 241);
+                }
+
+                &:focus {
+                    border: 1px solid rgb(223, 223, 223);
+                    background-color: white;
+                    width: 600px;
+
                     @media screen and (max-width: 900px) {
-                        width: 58vw;
-                    }
-
-                    &:hover {
-                        border: 1px solid rgb(223, 223, 223);
-                        background-color: rgb(241, 241, 241);
-                    }
-
-                    &:focus {
-                        border: 1px solid rgb(223, 223, 223);
-                        background-color: white;
-                        width: 600px;
-                        @media screen and (max-width: 900px) {
-                            width: 58vw;
-                        }
-                    }
-
-                    &.hasText {
-                        border: 1px solid rgb(223, 223, 223);
-                        background-color: white;
-                        width: 600px;
-                        @media screen and (max-width: 900px) {
-                            width: 58vw;
-                        }
+                        width: 41vw;
                     }
                 }
 
-                .typeSelector {
-                    position: absolute;
-                    right: 15px;
+                &.hasText {
+                    border: 1px solid rgb(223, 223, 223);
+                    background-color: white;
+                    width: 600px;
 
-                    select {
-                        border: none;
-                        cursor: pointer;
-                        border-left: 1px solid black;
-                        padding-left: 15px;
-                        height: 50px;
-                        background-color: rgba(255, 255, 255, 0);
-                        outline: none;
-                        width: 80px;
+                    @media screen and (max-width: 900px) {
+                        width: 41vw;
                     }
+                }
+
+            }
+
+            .clearBtnWrapper {
+                position: absolute;
+                right: 120px;
+
+                .clearBtn {
+                    border-radius: 50px;
+                    border: none;
+                    background-color: rgb(175, 175, 175);
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    width: 25px;
+                    padding-bottom: 7px;
+                    font-size: 1.3rem;
+                    height: 25px;
+
+                }
+            }
+
+            .typeSelector {
+                position: absolute;
+                right: 15px;
+
+                select {
+                    border: none;
+                    cursor: pointer;
+                    border-left: 1px solid black;
+                    padding-left: 15px;
+                    height: 50px;
+                    background-color: rgba(255, 255, 255, 0);
+                    outline: none;
+                    width: 80px;
                 }
             }
         }
     }
+}
 
-    .searchPrompt {
-        width: 100vw;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        p {
-            color: rgb(175, 174, 174);
-            font-size: 1.8rem;
-            text-align: center;
-        }
+.searchPrompt {
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: rgb(175, 174, 174);
+        font-size: 1.8rem;
+        text-align: center;
     }
-    .searchInProgress {
-        width: 100vw;
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media screen and (max-width: 900px) {
-            flex-direction: column;
-        }
-        img {
-            width: 200px;
-        }
-        h3 {
-            color: rgb(110, 110, 110);
-            padding-top: 15px;
-        }
+}
+
+.searchInProgress {
+    width: 100vw;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
     }
+
+    img {
+        width: 200px;
+    }
+
+    h3 {
+        color: rgb(110, 110, 110);
+        padding-top: 15px;
+    }
+}

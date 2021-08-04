@@ -2,6 +2,7 @@ import React from "react";
 import Movie from "../movie/movie";
 import "./movie-browser.scss";
 import InfiniteScroll from "react-infinite-scroller";
+import SearchInProgress from "../search-progress/search-progress";
 
 const MovieBrowser = ({ movies, loadMore, canLoadMore }) => {
   return (
@@ -10,7 +11,7 @@ const MovieBrowser = ({ movies, loadMore, canLoadMore }) => {
       loadMore={loadMore}
       hasMore={canLoadMore}
       threshold={250}
-      loader={<div></div>}
+      loader={<SearchInProgress showText={false} />}
     >
       <div className="itemsBrowser">
         {movies?.map((movie) => (
