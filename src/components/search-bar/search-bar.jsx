@@ -45,11 +45,11 @@ const SearchBar = (props) => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          {searchText.length && (
+          {searchText.length? (
             <div className="clearBtnWrapper" onClick={_clearSearchText}>
               <button className="clearBtn">x</button>
             </div>
-          )}
+          ): <></>}
           <div className="typeSelector">
             <select
               name="typeSelector"
