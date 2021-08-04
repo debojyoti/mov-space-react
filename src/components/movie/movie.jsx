@@ -40,6 +40,7 @@ const Movie = ({ movie }) => {
       className="itemWRapper"
       onMouseEnter={(e) => setIsExpanded(true)}
       onMouseLeave={(e) => setIsExpanded(false)}
+      key={movie.key}
     >
       <PosterPreviewer source={movie?.Poster} />
       <div className="metaData">

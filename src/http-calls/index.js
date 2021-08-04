@@ -10,7 +10,6 @@ export const HttpCalls = {
         queryStrings += "&";
       }
     });
-    console.log("queryStrings :>> ", queryStrings);
     return queryStrings;
   },
   makeSearchCall: async (searchParams) => {

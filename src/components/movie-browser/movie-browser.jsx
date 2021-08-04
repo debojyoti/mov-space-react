@@ -11,7 +11,7 @@ const MovieBrowser = ({ movies, loadMore, canLoadMore }) => {
       loadMore={loadMore}
       hasMore={canLoadMore}
       threshold={250}
-      loader={<SearchInProgress showText={false} />}
+      loader={<SearchInProgress showText={false} key={0} />}
     >
       <div className="itemsBrowser">
         {movies?.map((movie) => (
